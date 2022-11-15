@@ -63,7 +63,7 @@ resource "aws_iam_role_policy" "ses_send" {
   name = "EC2ProfileSESSendPolicy${title(each.key)}"
   role = aws_iam_role.ec2[each.key].id
 
-  policy = jsonencode({
+  policy = jsonencode(
 {
   Version = "2012-10-17",
   Statement = [
@@ -81,7 +81,7 @@ resource "aws_iam_role_policy" "ses_send" {
         }
       }
  }]
-})
+})      
 }
 # # ---------------------------------------------------------------------------------------------------------------------#
 # Create inline policy for EC2 service role to limit CodeCommit access
